@@ -26,6 +26,39 @@ const TECHNOLOGY_NEWS =
   "https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=8&apiKey=";
 const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
 
+// Handle onclick and onload event
+window.onload = () => {
+  newsType.innerHTML = `<h4>Headline</h4>`;
+  fetchHeadline();
+};
+
+generalBtn.addEventListener("click", () => {
+  newsType.innerHTML = `<h4>General news</h4>`;
+  fetchGeneralNews();
+});
+
+businessBtn.addEventListener("click", () => {
+  newsType.innerHTML = `<h4>Business news</h4>`;
+  fetchBusinessNews();
+});
+
+sportBtn.addEventListener("click", () => {
+  newsType.innerHTML = `<h4>Sport news</h4>`;
+  fetchSportNews();
+});
+
+technologyBtn.addEventListener("click", () => {
+  newsType.innerHTML = `<h4>Technology news</h4>`;
+  fetchTechnologyNews();
+});
+
+searchBtn.addEventListener("click", () => {
+  newsType.innerHTML = `<h4>Search: ` + newsQuery.value + `</h4>`;
+  fetchQueryNews();
+});
+
+// functions
+
 const fetchHeadline = async () => {
   const response = await fetch(HEADLINES_NEWS + API_KEY);
   newDataArray = [];
@@ -102,3 +135,61 @@ const fetchQueryNews = async () => {
 
   displayNews();
 };
+
+// display function
+function displayNews() {
+  newsDetailes.innerHTML = "";
+  if ((newDataArray.length = 0)) {
+    newsDetailes.innerHTML = `<h5>No data found.</h5>`;
+    return;
+  }
+
+  newDataArray.forEach((news) => {
+    var date = news.publishedAt.split("T");
+
+    var count = document.createElement("div");
+    count.classList.add("news-container");
+
+    var card = document.createElement("div");
+    card.classList.add("card");
+
+    var image = document.createElement("img");
+    image.classList.add("news-image");
+    image.setAttribute("height", "40%");
+    image.setAttribute("width", "100%");
+    image.src = news.urlToImage;
+
+    var cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+
+    var newsTitle = document.createElement("h5");
+    newsTitle.classList.add("news-title");
+    newsTitle.innerHTML = news.title;
+
+    var newsDate = document.createElement("h6");
+    newsDate.classList.add("news-date");
+    newsDate.innerHTML = date[0];
+
+    var description = document.createElement("p");
+    description.classList.add("news-text");
+    description.innerHTML = news.description;
+
+    var link = document.createElement("a");
+    link.classList.add("news-link");
+    link.setAttribute("target", "_blank");
+    link.href = news.url;
+    link.innerHTML = "Read more";
+
+    cardBody.appendChild(newsTitle);
+    cardBody.appendChild(newsDate);
+    cardBody.appendChild(description);
+    cardBody.appendChild(link);
+
+    card.appendChild(image);
+    card.appendChild(cardBody);
+
+    count.appendChild(card);
+
+    newsDetails.appendChild(count);
+  });
+}
