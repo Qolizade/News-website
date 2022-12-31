@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>News Website</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -19,7 +19,38 @@
     />
   </head>
   <body>
-    
+    <!-- Navbar -->
+    <form>
+      <h2 class="tittr">News</h2>
+      <ul class="navbar">
+        <li class="navbar-link">
+          <a href="#general" id="general" class="navbar-btn">General</a>
+        </li>
+        <li class="navbar-link">
+          <a href="#business" id="business" class="navbar-btn">Business</a>
+        </li>
+        <li class="navbar-link">
+          <a href="#sport" id="sport" class="navbar-btn">Sport</a>
+        </li>
+        <li class="navbar-link">
+          <a href="#technology" id="technology" class="navbar-btn"
+            >Technology</a
+          >
+        </li>
+      </ul>
+      <div class="search-buttons">
+        <input
+          type="text"
+          id="news-query"
+          placeholder="search news"
+          class="search"
+        />
+        <button class="search-btn" id="search-btn" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </form>
+
     <!-- Optional JavaScript -->
     <script src="script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
