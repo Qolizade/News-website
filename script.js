@@ -25,3 +25,16 @@ const SPORTS_NEWS =
 const TECHNOLOGY_NEWS =
   "https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=8&apiKey=";
 const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
+
+const fetchHeadline = async () => {
+  const response = await fetch(HEADLINES_NEWS + API_KEY);
+  newDataArray = [];
+  console.log(response.status);
+  if (response.status >= 200 && response.status < 300) {
+    const myJson = await response.json();
+    newDataArray = myJson.articles;
+  } else {
+    console.log(response.status, response.statusText);
+  }
+  displayNews();
+};
