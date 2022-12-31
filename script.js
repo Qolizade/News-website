@@ -72,4 +72,17 @@ const fetchSportNews = async () => {
   } else {
     console.log(response.status, response.statusText);
   }
+  displayNews();
+};
+
+const fetchTechnologyNews = async () => {
+  const response = await fetch(TECHNOLOGY_NEWS + API_KEY);
+  newDataArray = [];
+  if (response.status >= 200 && response.status < 300) {
+    const myJson = await response.json();
+    newDataArray = myJson.articles;
+  } else {
+    console.log(response.status, response.statusText);
+  }
+  displayNews();
 };
