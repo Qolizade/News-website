@@ -1,3 +1,4 @@
+/* global styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,7 @@ body {
   outline: none;
   font-family: "Poppins", sans-serif;
 }
+/* Navbar styles */
 
 form {
   background: #424245;
@@ -77,4 +79,77 @@ li {
 .search-btn:hover {
   color: aqua;
   font-size: 1.3rem;
+}
+
+/* news styles */
+
+#news-detailes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+  /* margin: 2rem 0.5rem; */
+  /* width: 25vw; */
+  /* display: flex; */
+}
+
+.container{
+  max-width: 95vw;
+  min-width: 80em;
+  margin: 1rem auto;
+}
+
+.news-container{
+  margin: 1rem 0.5rem;
+}
+
+.card {
+  min-width: 20vw;
+  max-width: 35vw;
+  height: 30vw;
+  min-height: 25vw;
+  background-color: rgb(243, 243, 243);
+  border-radius: 0.3rem;
+  margin: 1rem 0.2rem;
+}
+
+.news-image{
+  border-radius: 0.3rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.news-title{
+  font-size: 1.1rem;
+}
+
+.news-date{
+  display: flex;
+  justify-content: flex-end;  
+}
+
+.news-text{
+  display: flex;
+  margin: 1rem auto !important;
+  text-align: justify;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.news-link {
+  text-decoration: none;
+  background-color: #424245;
+  color: #ffff;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.news-link:hover{
+  opacity: 0.8;
 }
