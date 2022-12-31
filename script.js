@@ -86,3 +86,19 @@ const fetchTechnologyNews = async () => {
   }
   displayNews();
 };
+
+const fetchQueryNews = async () => {
+  if (newsQuery == null) return;
+  const response = await fetch(
+    SEARCH_NEWS + encodeURIComponent(newsQuery.value) + "&apiKey=" + API_KEY
+  );
+  newsDataArray = [];
+  if ((response.status >= 200) & (response.status < 300)) {
+    const myJson = await response.json();
+    newDataArray = myJson.articles;
+  } else {
+    console.log(response.status, response.statusText);
+  }
+
+  displayNews();
+};
