@@ -190,6 +190,6 @@ function displayNews() {
 
     count.appendChild(card);
 
-    newsDetails.appendChild(count);
+    newsDetailes.appendChild(count);
   });
 }
