@@ -38,3 +38,15 @@ const fetchHeadline = async () => {
   }
   displayNews();
 };
+
+const fetchGeneralNews = async () => {
+  const response = await fetch(GENERAL_NEWS + API_KEY);
+  newDataArray = [];
+  if (response.status >= 200 && response.status < 300) {
+    const myJson = await response.json();
+    newDataArray = myJson.articles;
+  } else {
+    console.log(response.status, response.statusText);
+  }
+  displayNews();
+};
